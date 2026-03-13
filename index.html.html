@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You Risay</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family: 'Segoe UI', sans-serif;
+background:black;
+color:white;
+overflow:hidden;
+}
+
+/* stars */
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:0.2}
+to{opacity:1}
+}
+
+.card{
+position:relative;
+background:rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
+padding:40px;
+border-radius:15px;
+max-width:550px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+h1{
+font-weight:300;
+margin-bottom:20px;
+}
+
+#typed{
+font-size:18px;
+min-height:60px;
+}
+
+button{
+margin-top:25px;
+padding:12px 28px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+#message{
+display:none;
+margin-top:25px;
+line-height:1.7;
+font-size:17px;
+color:#ddd;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Hey…</h1>
+
+<div id="typed"></div>
+
+<button onclick="showMessage()">Read what I wrote</button>
+
+<div id="message">
+
+<!-- ✏️ PUT YOUR MESSAGE HERE -->
+
+<p>
+I dont know how to put it correctly but see i really want you feel loved and I want you to believe me
+when I say ki I want to stay with you and i get it ki tor orom keno monehoy but I want you to be assured
+ki eta hoochena not giving you eto khushi to eta niy tor na bhableo cholbe, I feel very bad knowning ki 
+you dont feel nice and you cant be you around me and I would love to hear ki korle youll feel like better.
+I want you to be happy and to be with me and I dont care how many times we fight but we'll fix it together
+love react if you enjoy my company thanks 
+
+yours sincerely
+Abhiruk_
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+/* star background */
+
+for(let i=0;i<120;i++){
+let star=document.createElement("div")
+star.className="star"
+star.style.left=Math.random()*100+"vw"
+star.style.top=Math.random()*100+"vh"
+star.style.animationDuration=(Math.random()*3+2)+"s"
+document.body.appendChild(star)
+}
+
+/* typing lines */
+
+const lines=[
+"Hi Risa i know u liked my message",
+"So I made this for you.",
+"If you read this youll like my message more",
+"thanks for understanding."
+]
+
+let lineIndex=0
+let charIndex=0
+const typed=document.getElementById("typed")
+
+function type(){
+if(lineIndex<lines.length){
+if(charIndex<lines[lineIndex].length){
+typed.innerHTML+=lines[lineIndex].charAt(charIndex)
+charIndex++
+setTimeout(type,40)
+}else{
+typed.innerHTML+="<br>"
+lineIndex++
+charIndex=0
+setTimeout(type,700)
+}
+}
+}
+
+type()
+
+function showMessage(){
+document.getElementById("message").style.display="block"
+}
+
+</script>
+
+</body>
+</html>
